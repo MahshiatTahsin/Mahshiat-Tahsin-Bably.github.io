@@ -77,5 +77,3 @@ Graduation thesis: **Computer Vision-Based Recognition of Medicine Names and Its
 - **English:** Fluent
 - **Finnish:** Basic
 
-
-- **Finnish:** Basic
