@@ -1,9 +1,24 @@
 remote_theme: pages-themes/minimal@v0.2.0
+
 plugins:
-- jekyll-remote-theme 
-gem "github-pages", group::jekyll_plugins
-title: [Mahshiat Tahsin Bably]
-description: [A graduate in Information Technology – Computer Engineering from Åbo Akademi University, Turku, Finland, with 120 credits completed. The Master’s thesis, “Formal Approaches for Explainable AI,” reflects a strong interest in the intersection of Artificial Intelligence, Machine Learning, Data Science, Software Engineering, Web Technologies, and Formal Methods.
-With a solid academic foundation and practical technical experience, this profile includes skills in Python, C, Java, Shell Scripting, Power BI, data analysis, frontend development, software testing, graphic design, and digital content creation. Passionate about combining technical knowledge with creativity, clear communication, and problem-solving to build meaningful and impactful digital solutions.]
-how_downloads: ["true"]
+  - jekyll-remote-theme
+
+title: Mahshiat Tahsin Bably
+
+description: >
+  Computer and AI Engineer with a Master’s degree in Information Technology –
+  Computer Engineering from Åbo Akademi University, Turku, Finland, with 120 ECTS
+  credits completed. Her Master’s thesis, “Formal Approaches for Explainable AI,”
+  reflects her strong interest in Artificial Intelligence, Machine Learning, Data
+  Science, Software Engineering, Web Technologies, and Formal Methods.
+
+  With a solid academic foundation and practical technical experience, her skillset
+  includes Python, C, Java, Shell Scripting, Power BI, data analysis, frontend
+  development, software testing, graphic design, and digital content creation.
+  She is passionate about combining technical knowledge with creativity, clear
+  communication, and problem-solving to build meaningful and impactful digital
+  solutions.
+
+show_downloads: true
+
 logo: /assets/img/Mah.jpg
