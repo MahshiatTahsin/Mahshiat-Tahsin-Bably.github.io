@@ -5,20 +5,13 @@ Computer and AI Engineer with a Master’s degree in **Information Technology �
 
 My work combines technical problem-solving, software development, data-driven thinking, and creative digital communication. I am interested in building reliable, understandable, and meaningful technology solutions for both industry and academic environments.
 
+
 ## Education
 
 ### Master of Science (Technology) in Information Technology – Computer Engineering  
 **Åbo Akademi University, Turku, Finland**  
 **120 ECTS credits completed**  
 **CGPA:** 3.29/5.00
-## Master’s Thesis
-
-### Formal Approaches for Explainable AI
-
-This thesis focuses on how formal methods can support the development of more transparent, reliable, and interpretable AI systems. It connects Artificial Intelligence, Machine Learning, Explainable AI, and formal reasoning to better understand how AI decisions can be explained, verified, and trusted.
-
-**Thesis link:** https://urn.fi/URN:NBN:fi-fe2026052049902
-
 
 Relevant areas: Artificial Intelligence, Machine Learning, Cloud Computing, Data Science, Software Testing, Software Quality, Web Technologies, System Safety, GPU Programming, Autonomic Systems and Software, Research Methods, and Software Construction.
 
@@ -28,6 +21,13 @@ Relevant areas: Artificial Intelligence, Machine Learning, Cloud Computing, Data
 
 Graduation thesis: **Computer Vision-Based Recognition of Medicine Names and Its Information**
 
+## Master’s Thesis
+
+### Formal Approaches for Explainable AI
+
+This thesis focuses on how formal methods can support the development of more transparent, reliable, and interpretable AI systems. It connects Artificial Intelligence, Machine Learning, Explainable AI, and formal reasoning to better understand how AI decisions can be explained, verified, and trusted.
+
+**Thesis link:** https://urn.fi/URN:NBN:fi-fe2026052049902
 
 ## Work Experience
 
@@ -58,22 +58,21 @@ Graduation thesis: **Computer Vision-Based Recognition of Medicine Names and Its
 
 ## Projects
 
-- **Collaborative Data Ecosystem for Green Shipping:** Completed in collaboration with DEMOLA.
-- **Computer Vision-Based Recognition of Medicine Names and Its Information:** Bachelor’s thesis project focused on medicine name recognition using computer vision.
-- **Prevent Rape on Bus:** Developed a system to track and alert authorities about potential harassment on public transport.
-- **Student Management System:** Built a web application for managing student information, grades, and courses.
-- **Snake Game:** Developed an interactive snake game using Python with a graphical user interface.
-- **Banking Management System:** Created a system to manage customer accounts, transactions, and banking operations.
-- **Home Security Alarm:** Designed an Arduino-based home security alarm system using sensors.
-- **Parking Assistant System:** Built a system to monitor available parking spaces and assist drivers in finding parking.
-- **Restaurant Website:** Developed a responsive restaurant website with menu display and reservation features.
-- **Homeless People’s House Project:** Designed a social initiative focused on providing housing support for homeless individuals.
-- **Automatic Answer Checker:** Developed a system to automatically check and grade student exam answers.
-- **Online Mentorship Program Design:** Created a platform concept to connect mentors and mentees for personal and professional development.
+- 🚢 **Collaborative Data Ecosystem for Green Shipping:** Completed in collaboration with DEMOLA.
+- 💊 **Computer Vision-Based Recognition of Medicine Names and Its Information:** Bachelor’s thesis project focused on medicine name recognition using computer vision.
+- 🚌 **Prevent Harassment on Bus:** Developed a system to track and alert authorities about potential harassment on public transport.
+- 🎓 **Student Management System:** Built a web application for managing student information, grades, and courses.
+- 🐍 **Snake Game:** Developed an interactive snake game using Python with a graphical user interface.
+- 🏦 **Banking Management System:** Created a system to manage customer accounts, transactions, and banking operations.
+- 🏠 **Home Security Alarm:** Designed an Arduino-based home security alarm system using sensors.
+- 🚗 **Parking Assistant System:** Built a system to monitor available parking spaces and assist drivers in finding parking.
+- 🍽️ **Restaurant Website:** Developed a responsive restaurant website with menu display and reservation features.
+- 🏘️ **Homeless People’s House Project:** Designed a social initiative focused on providing housing support for homeless individuals.
+- ✅ **Automatic Answer Checker:** Developed a system to automatically check and grade student exam answers.
+- 🤝 **Online Mentorship Program Design:** Created a platform concept to connect mentors and mentees for personal and professional development.
 
 ## Languages
 
 - **Bangla:** Native
 - **English:** Fluent
 - **Finnish:** Basic
-
