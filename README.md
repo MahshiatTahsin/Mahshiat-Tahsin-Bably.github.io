@@ -1,11 +1,33 @@
 # Computer and AI Engineer
 
 ## About Me
-I am a graduate in **Information Technology – Computer Engineering** from **Åbo Akademi University, Turku, Finland**, with **120 credits completed**. My Master’s thesis is titled **“Formal Approaches for Explainable AI”**, where I explored how formal methods can support transparency, reliability, and explainability in AI systems.
+Computer and AI Engineer with a Master’s degree in **Information Technology – Computer Engineering** from **Åbo Akademi University, Finland**, and a Bachelor’s degree in **Computer Science and Engineering** from **Green University of Bangladesh**. Skilled in **Artificial Intelligence, Machine Learning, Data Science, Software Engineering, Web Technologies, and Formal Methods**.
 
-Thesis link: https://urn.fi/URN:NBN:fi-fe2026052049902
+My work combines technical problem-solving, software development, data-driven thinking, and creative digital communication. I am interested in building reliable, understandable, and meaningful technology solutions for both industry and academic environments.
 
-My academic and technical interests include **Artificial Intelligence, Machine Learning, Data Science, Software Engineering, Web Technologies, and Formal Methods**. I enjoy combining technical knowledge with creativity, problem-solving, and clear communication to build meaningful digital solutions.
+## Education
+
+### Master of Science (Technology) in Information Technology – Computer Engineering  
+**Åbo Akademi University, Turku, Finland**  
+**120 ECTS credits completed**  
+**CGPA:** 3.29/5.00
+## Master’s Thesis
+
+### Formal Approaches for Explainable AI
+
+This thesis focuses on how formal methods can support the development of more transparent, reliable, and interpretable AI systems. It connects Artificial Intelligence, Machine Learning, Explainable AI, and formal reasoning to better understand how AI decisions can be explained, verified, and trusted.
+
+**Thesis link:** https://urn.fi/URN:NBN:fi-fe2026052049902
+
+
+Relevant areas: Artificial Intelligence, Machine Learning, Cloud Computing, Data Science, Software Testing, Software Quality, Web Technologies, System Safety, GPU Programming, Autonomic Systems and Software, Research Methods, and Software Construction.
+
+### Bachelor of Science in Computer Science and Engineering  
+**Green University of Bangladesh, Dhaka, Bangladesh**  
+**CGPA:** 3.50/4.00
+
+Graduation thesis: **Computer Vision-Based Recognition of Medicine Names and Its Information**
+
 
 ## Work Experience
 
@@ -36,6 +58,8 @@ My academic and technical interests include **Artificial Intelligence, Machine L
 
 ## Projects
 
+- **Collaborative Data Ecosystem for Green Shipping:** Completed in collaboration with DEMOLA.
+- **Computer Vision-Based Recognition of Medicine Names and Its Information:** Bachelor’s thesis project focused on medicine name recognition using computer vision.
 - **Prevent Rape on Bus:** Developed a system to track and alert authorities about potential harassment on public transport.
 - **Student Management System:** Built a web application for managing student information, grades, and courses.
 - **Snake Game:** Developed an interactive snake game using Python with a graphical user interface.
@@ -48,6 +72,10 @@ My academic and technical interests include **Artificial Intelligence, Machine L
 - **Online Mentorship Program Design:** Created a platform concept to connect mentors and mentees for personal and professional development.
 
 ## Languages
+
+- **Bangla:** Native
+- **English:** Fluent
+- **Finnish:** Basic
 
 - **Bangla:** Native
 - **English:** Fluent
