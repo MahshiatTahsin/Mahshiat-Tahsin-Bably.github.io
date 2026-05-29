@@ -1,0 +1,21 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+header img {
+  max-width: 180px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+header p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+footer {
+  display: none;
+}
