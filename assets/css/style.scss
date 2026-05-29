@@ -3,21 +3,41 @@
 
 @import "{{ site.theme }}";
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page background */
+body {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f4f2ff 100%);
+}
+
 /* Sidebar/header area */
 header {
   position: static !important;
   width: 260px !important;
   float: left !important;
+  animation: fadeInLeft 0.8s ease;
 }
 
-/* Profile image with rounded border radius */
+/* Profile image with rounded border and hover effect */
 header img {
   width: 200px !important;
   height: 200px !important;
   object-fit: cover !important;
-  border-radius: 35px !important;
+  border-radius: 22px !important;
   display: block !important;
   margin-bottom: 18px !important;
+  border: 3px solid #7c6af7 !important;
+  box-shadow: 0 10px 30px rgba(124, 106, 247, 0.25) !important;
+  transition: all 0.35s ease !important;
+}
+
+header img:hover {
+  transform: scale(1.05) rotate(1deg) !important;
+  box-shadow: 0 16px 45px rgba(124, 106, 247, 0.4) !important;
+  border-color: #f7c26a !important;
 }
 
 /* Name/title */
@@ -25,13 +45,15 @@ header h1 {
   font-size: 26px !important;
   line-height: 1.2 !important;
   margin-bottom: 15px !important;
+  color: #222 !important;
 }
 
 /* Short description */
 header p {
   font-size: 14px !important;
-  line-height: 1.4 !important;
+  line-height: 1.5 !important;
   margin-bottom: 12px !important;
+  color: #555 !important;
 }
 
 /* Hide GitHub Pages footer text */
@@ -48,6 +70,129 @@ header .view {
 section {
   margin-left: 320px !important;
   width: calc(100% - 340px) !important;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Headings */
+section h1,
+section h2,
+section h3 {
+  color: #222 !important;
+  transition: all 0.25s ease;
+}
+
+section h2 {
+  border-bottom: 2px solid #7c6af7 !important;
+  padding-bottom: 6px !important;
+}
+
+section h2:hover {
+  color: #7c6af7 !important;
+  transform: translateX(5px);
+}
+
+/* Links */
+a {
+  color: #6a58e8 !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+a:hover {
+  color: #f7a928 !important;
+  text-decoration: underline !important;
+}
+
+/* Paragraph and list text */
+p,
+li {
+  line-height: 1.7 !important;
+}
+
+/* Project list card effect with small icons */
+section ul {
+  padding-left: 0 !important;
+}
+
+section ul li {
+  list-style: none !important;
+  background: #ffffff !important;
+  border: 1px solid #e6e3ff !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 4px 14px rgba(124, 106, 247, 0.08) !important;
+  transition: all 0.25s ease !important;
+}
+
+section ul li:hover {
+  transform: translateX(8px) translateY(-2px) !important;
+  border-color: #7c6af7 !important;
+  box-shadow: 0 8px 24px rgba(124, 106, 247, 0.18) !important;
+  color: #333 !important;
+}
+
+/* Soft hover for bold text */
+strong {
+  color: #333;
+  transition: color 0.25s ease;
+}
+
+strong:hover {
+  color: #7c6af7;
+}
+
+/* Code block style */
+pre,
+code {
+  border-radius: 10px !important;
+}
+
+/* Selection color */
+::selection {
+  background: #7c6af7;
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c6af7, #f7c26a);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6a58e8, #f7a928);
+}
+
+/* Fade animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Mobile view */
