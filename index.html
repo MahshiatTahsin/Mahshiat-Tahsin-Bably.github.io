@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahshiat Tahsin Bably – Computer &amp; AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f9ff;
+    --bg2: #ffffff;
+    --surface: #ffffff;
+    --surface2: #f2f2f2;
+    --accent: #1a1a1a;
+    --accent2: #f7a928;
+    --text: #1a1a2e;
+    --muted: #666688;
+    --border: rgba(0,0,0,0.15);
+    --shadow: rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 45%, #f4f2ff 100%);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Subtle floating orbs — light version */
+  .glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glow-orb.one {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,0,0,0.04) 0%, transparent 70%);
+    top: -150px; left: -150px;
+    animation: drift1 14s ease-in-out infinite alternate;
+  }
+  .glow-orb.two {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(247,169,40,0.06) 0%, transparent 70%);
+    bottom: 100px; right: -100px;
+    animation: drift2 18s ease-in-out infinite alternate;
+  }
+  .glow-orb.three {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    animation: drift3 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(80px, 100px); } }
+  @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-60px, -80px); } }
+  @keyframes drift3 { from { transform: translate(-50%,-50%) scale(1); } to { transform: translate(-40%,-60%) scale(1.2); } }
+
+  /* Noise grain overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    z-index: -1;
+    animation: spin-gradient 6s linear infinite;
+  }
+  @keyframes spin-gradient {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(30deg); }
+  }
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,0.08), transparent 70%);
+    z-index: -2;
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.06); opacity: 1; }
+  }
+  .hero-photo {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .hero-photo:hover { transform: scale(1.06) rotate(2deg); }
+
+  .hero-initials {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8e8e8, #fff4e0);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 700;
+    color: var(--accent);
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--text);
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+  .hero-name span { color: var(--accent); }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 30px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.6s forwards;
+  }
+
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.8s forwards;
+  }
+  .chip {
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--accent);
+    background: rgba(0,0,0,0.04);
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .chip:hover {
+    background: rgba(0,0,0,0.09);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow);
+  }
+
+  .hero-links {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 1s forwards;
+  }
+  .btn {
+    padding: 11px 24px;
+    border-radius: 10px;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--accent); background: #fff; }
+  .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 20px var(--shadow); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.18), transparent);
+    margin: 0 0 60px;
+  }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 68px; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-underline {
+    height: 2px; width: 48px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin-bottom: 28px;
+    transition: width 0.4s ease;
+  }
+  section:hover .section-underline { width: 80px; }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 24px 24px 28px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    border-radius: 4px 0 0 4px;
+  }
+  .edu-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .edu-card:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.3); box-shadow: 0 14px 40px var(--shadow); }
+  .edu-card:hover::after { opacity: 1; }
+
+  .edu-degree { font-size: 15px; font-weight: 600; margin-bottom: 5px; line-height: 1.4; color: var(--text); }
+  .edu-school { font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 600; }
+  .edu-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .edu-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* ── THESIS ── */
+  .thesis-card {
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 18px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+  .thesis-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(247,169,40,0.03));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .thesis-card::after {
+    content: '↗';
+    position: absolute;
+    top: 22px; right: 26px;
+    font-size: 22px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translate(-6px, 6px);
+    transition: all 0.25s;
+  }
+  .thesis-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+  .thesis-card:hover::before { opacity: 1; }
+  .thesis-card:hover::after { opacity: 1; transform: translate(0,0); }
+
+  .thesis-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.18);
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .thesis-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+    padding-right: 36px;
+  }
+  .thesis-desc { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+  .thesis-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .thesis-tag {
+    padding: 4px 11px; border-radius: 100px;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.12);
+    font-size: 11px; color: var(--accent);
+  }
+
+  /* ── WORK EXPERIENCE ── */
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 24px 24px 28px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .work-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent2), var(--accent));
+    border-radius: 4px 0 0 4px;
+  }
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.3); box-shadow: 0 14px 40px var(--shadow); }
+  .work-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .work-company { font-size: 13px; color: var(--accent2); font-weight: 600; margin-bottom: 4px; }
+  .work-period { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .work-list { padding-left: 18px; }
+  .work-list li { font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .project-card:hover { transform: translateY(-5px); border-color: rgba(0,0,0,0.35); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #f5f5f5, #fff9ee);
+    border-color: rgba(0,0,0,0.2);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .project-card.featured .project-icon { font-size: 36px; margin: 0; flex-shrink: 0; }
+
+  .project-icon {
+    font-size: 22px; display: block; margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover .project-icon { transform: scale(1.2) rotate(6deg); }
+
+  .project-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+  .github-arrow {
+    font-size: 15px; color: var(--accent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .project-card:hover .github-arrow { opacity: 1; }
+
+  .project-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+  .project-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tech-tag {
+    padding: 3px 9px; border-radius: 100px;
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.14);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; color: var(--accent);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .skill-card:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.3); box-shadow: 0 12px 32px var(--shadow); }
+  .skill-group-name {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent2); margin-bottom: 10px; font-weight: 500;
+  }
+  .skill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-list li {
+    font-size: 12px; color: var(--muted);
+    background: var(--surface2);
+    padding: 3px 10px; border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.2s;
+  }
+  .skill-list li:hover { background: rgba(0,0,0,0.08); color: var(--accent); border-color: var(--accent); }
+
+  /* ── LANGUAGES ── */
+  .lang-list { display: flex; flex-wrap: wrap; gap: 12px; }
+  .lang-chip {
+    padding: 8px 20px; border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 13px; font-weight: 500; color: var(--text);
+    box-shadow: 0 4px 14px var(--shadow);
+    transition: all 0.25s;
+  }
+  .lang-chip span { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 11px; margin-left: 6px; }
+  .lang-chip:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 10px 24px var(--shadow); }
+
+  /* ── SOCIAL ICONS ── */
+  .social-bar {
+    display: flex; gap: 14px; justify-content: center;
+    margin-top: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 1.1s forwards;
+  }
+  .social-link {
+    display: flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px var(--shadow);
+    position: relative;
+  }
+  .social-link svg { width: 18px; height: 18px; fill: currentColor; transition: transform 0.25s; }
+  .social-link:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 10px 28px rgba(0,0,0,0.15); }
+  .social-link:hover svg { transform: scale(1.15); }
+  .social-link.linkedin:hover { color: #0a66c2; border-color: #0a66c2; box-shadow: 0 10px 28px rgba(10,102,194,0.2); }
+  .social-link.gmail:hover { color: #ea4335; border-color: #ea4335; box-shadow: 0 10px 28px rgba(234,67,53,0.2); }
+  .social-link.github:hover { color: #333; border-color: #333; box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+  .social-link.thesis:hover { color: #1a1a1a; border-color: #1a1a1a; }
+
+  /* Tooltip */
+  .social-link::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%; transform: translateX(-50%);
+    background: var(--text);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .social-link:hover::after { opacity: 1; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    letter-spacing: 1px;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent), var(--accent2)); border-radius: 20px; }
+
+  @media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { flex-direction: column; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .hero-links { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow-orb one"></div>
+<div class="glow-orb two"></div>
+<div class="glow-orb three"></div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-photo-wrap">
+      <img src="assets/img/Mah.jpg" alt="Mahshiat Tahsin Bably" class="hero-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display: block;">
+      <div class="hero-initials" style="display: none;">MTB</div>
+    </div>
+    <p class="hero-tag">Computer &amp; AI Engineer</p>
+    <h1 class="hero-name">Mahshiat Tahsin <span>Bably</span></h1>
+    <p class="hero-subtitle">
+      Computer and AI Engineer with a Master's degree in Information Technology – Computer Engineering
+      from Åbo Akademi University, Finland. Building reliable, transparent, and meaningful AI systems.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">AI &amp; Machine Learning</span>
+      <span class="chip">Explainable AI</span>
+      <span class="chip">Data Science</span>
+      <span class="chip">Software Engineering</span>
+      <span class="chip">Web Technologies</span>
+      <span class="chip">Formal Methods</span>
+    </div>
+    <div class="hero-links">
+      <a href="https://urn.fi/URN:NBN:fi-fe2026052049902" target="_blank" class="btn btn-primary">
+        View Thesis ↗
+      </a>
+      <a href="mailto:mahshiat@gmail.com" class="btn btn-ghost">
+        Contact Me
+      </a>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div class="social-bar">
+
+      <!-- LinkedIn -->
+      <a class="social-link linkedin" href="https://www.linkedin.com/in/mahshiat-tahsin/" target="_blank" rel="noopener" data-tip="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+        </svg>
+      </a>
+
+      <!-- Gmail -->
+      <a class="social-link gmail" href="mailto:mahshiat@gmail.com" data-tip="Gmail">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z"></path>
+        </svg>
+      </a>
+
+      <!-- GitHub -->
+      <a class="social-link github" href="https://github.com/MahshiatTahsin" target="_blank" rel="noopener" data-tip="GitHub">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.09.682-.218.682-.484 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.09-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.104-.253-.447-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+        </svg>
+      </a>
+
+      <!-- Thesis -->
+      <a class="social-link thesis" href="https://urn.fi/URN:NBN:fi-fe2026052049902" target="_blank" rel="noopener" data-tip="Thesis">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"></path>
+        </svg>
+      </a>
+
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- EDUCATION -->
+  <section class="reveal">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="section-underline"></div>
+
+    <div class="edu-card">
+      <p class="edu-degree">Master of Science (Technology) in Information Technology – Computer Engineering</p>
+      <p class="edu-school">Åbo Akademi University · Turku, Finland</p>
+      <p class="edu-meta">120 ECTS credits completed &nbsp;·&nbsp; CGPA: 3.29 / 5.00</p>
+      <p class="edu-desc">Relevant areas: AI, Machine Learning, Cloud Computing, Data Science, Software Testing, Software Quality, Web Technologies, System Safety, GPU Programming, Autonomic Systems, Research Methods, Software Construction.</p>
+    </div>
+
+    <div class="edu-card">
+      <p class="edu-degree">Bachelor of Science in Computer Science and Engineering</p>
+      <p class="edu-school">Green University of Bangladesh · Dhaka, Bangladesh</p>
+      <p class="edu-meta">CGPA: 3.50 / 4.00</p>
+      <p class="edu-desc">Graduation thesis: Computer Vision-Based Recognition of Medicine Names and Its Information.</p>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="reveal">
+    <p class="section-label">Research</p>
+    <h2 class="section-title">Master's Thesis</h2>
+    <div class="section-underline"></div>
+
+    <a class="thesis-card" href="https://urn.fi/URN:NBN:fi-fe2026052049902" target="_blank" rel="noopener">
+      <span class="thesis-badge">Click to read thesis →</span>
+      <h3 class="thesis-title">Formal Approaches for Explainable AI</h3>
+      <p class="thesis-desc">
+        This thesis focuses on how formal methods can support the development of more transparent, reliable, and interpretable AI systems. It connects Artificial Intelligence, Machine Learning, Explainable AI, and formal reasoning to better understand how AI decisions can be explained, verified, and trusted.
+      </p>
+      <div class="thesis-tags">
+        <span class="thesis-tag">Explainable AI</span>
+        <span class="thesis-tag">Formal Methods</span>
+        <span class="thesis-tag">Machine Learning</span>
+        <span class="thesis-tag">System Safety</span>
+        <span class="thesis-tag">Software Quality</span>
+        <span class="thesis-tag">Cloud Computing</span>
+        <span class="thesis-tag">GPU Programming</span>
+        <span class="thesis-tag">Research Methods</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section class="reveal">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="section-underline"></div>
+
+    <div class="work-card">
+      <p class="work-title">Digital Content Visualizer</p>
+      <p class="work-company">Guerniss · Dhaka, Bangladesh</p>
+      <p class="work-period">Nov 2023 – Mar 2024</p>
+      <ul class="work-list">
+        <li>Created and supported digital content for online platforms.</li>
+        <li>Worked with visual content, branding ideas, and creative communication.</li>
+        <li>Gained practical experience in content creation, social media, design, and digital presentation.</li>
+      </ul>
+    </div>
+
+    <div class="work-card">
+      <p class="work-title">Trainee Engineer</p>
+      <p class="work-company">Confidence Electro-Mech Ltd. · Dhaka, Bangladesh</p>
+      <p class="work-period">Dec 2022 – Sep 2023</p>
+      <ul class="work-list">
+        <li>Worked in a technical engineering environment.</li>
+        <li>Supported engineering-related tasks and learned practical workplace processes.</li>
+        <li>Developed skills in communication, teamwork, technical documentation, and problem-solving.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="reveal">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-underline"></div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:20px;font-family:&#39;DM Mono&#39;,monospace;">↗ click any card to open GitHub repository</p>
+
+    <div class="projects-grid">
+
+      <!-- ✏️ TO ACTIVATE Green Shipping: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/green-shipping -->
+      <a class="project-card featured" href="#">
+        <span class="project-icon">🚢</span>
+        <div>
+          <div class="project-top">
+            <span class="project-name">Collaborative Data Ecosystem for Green Shipping</span>
+            <span class="github-arrow">↗</span>
+          </div>
+          <p class="project-desc">Completed in collaboration with DEMOLA. Built a data-sharing ecosystem to support sustainable, green shipping operations across industry partners.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Data Engineering</span>
+            <span class="tech-tag">Collaboration</span>
+            <span class="tech-tag">Sustainability</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Medicine Vision: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/medicine-vision -->
+      <a class="project-card" href="#">
+        <span class="project-icon">💊</span>
+        <div class="project-top"><span class="project-name">Computer Vision-Based Medicine Name Recognition</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Bachelor's thesis. Recognises medicine names and retrieves their information using computer vision.</p>
+        <div class="project-tech"><span class="tech-tag">Computer Vision</span><span class="tech-tag">Python</span><span class="tech-tag">OCR</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Harassment on Bus: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/harassment-bus -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🚌</span>
+        <div class="project-top"><span class="project-name">Prevent Harassment on Bus</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Tracks and alerts authorities about potential harassment on public transport in real time.</p>
+        <div class="project-tech"><span class="tech-tag">IoT</span><span class="tech-tag">Safety</span><span class="tech-tag">Alerts</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Student Management: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/student-management -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🎓</span>
+        <div class="project-top"><span class="project-name">Student Management System</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Web application for managing student information, grades, and courses with an admin interface.</p>
+        <div class="project-tech"><span class="tech-tag">Web App</span><span class="tech-tag">Database</span><span class="tech-tag">CRUD</span></div>
+      </a>
+
+      <!-- Snake Game — LIVE LINK ✅ -->
+      <a class="project-card" href="https://github.com/MahshiatTahsin/snake-game-java" target="_blank" rel="noopener">
+        <span class="project-icon">🐍</span>
+        <div class="project-top"><span class="project-name">Snake Game</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Interactive snake game built in Java with a full graphical user interface.</p>
+        <div class="project-tech"><span class="tech-tag">Java</span><span class="tech-tag">GUI</span><span class="tech-tag">Game Dev</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Banking Management: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/banking-management -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🏦</span>
+        <div class="project-top"><span class="project-name">Banking Management System</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Manages customer accounts, transactions, and core banking operations with role-based access.</p>
+        <div class="project-tech"><span class="tech-tag">Java / Python</span><span class="tech-tag">Database</span><span class="tech-tag">OOP</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Home Security Alarm: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/home-security-alarm -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🏠</span>
+        <div class="project-top"><span class="project-name">Home Security Alarm</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Arduino-based home security system using motion and environmental sensors.</p>
+        <div class="project-tech"><span class="tech-tag">Arduino</span><span class="tech-tag">Sensors</span><span class="tech-tag">Embedded</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Parking Assistant: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/parking-assistant -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🚗</span>
+        <div class="project-top"><span class="project-name">Parking Assistant System</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Monitors available parking spaces and guides drivers to open slots in real time.</p>
+        <div class="project-tech"><span class="tech-tag">IoT</span><span class="tech-tag">Sensors</span><span class="tech-tag">Dashboard</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Restaurant Website: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/restaurant-website -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🍽️</span>
+        <div class="project-top"><span class="project-name">Restaurant Website</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Responsive restaurant site with dynamic menu display and online reservation feature.</p>
+        <div class="project-tech"><span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Responsive</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Homeless House Project: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/homeless-house-project -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🏘️</span>
+        <div class="project-top"><span class="project-name">Homeless People's House Project</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Social initiative platform connecting homeless individuals with housing support services.</p>
+        <div class="project-tech"><span class="tech-tag">Social Impact</span><span class="tech-tag">Web</span><span class="tech-tag">Community</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Automatic Answer Checker: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/auto-answer-checker -->
+      <a class="project-card" href="#">
+        <span class="project-icon">✅</span>
+        <div class="project-top"><span class="project-name">Automatic Answer Checker</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">System to automatically check and grade student exam answers with scoring logic.</p>
+        <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">NLP</span><span class="tech-tag">Automation</span></div>
+      </a>
+
+      <!-- ✏️ TO ACTIVATE Online Mentorship Program: replace href="#" with the real URL below -->
+      <!-- Real URL: https://github.com/MahshiatTahsin/mentorship-program -->
+      <a class="project-card" href="#">
+        <span class="project-icon">🤝</span>
+        <div class="project-top"><span class="project-name">Online Mentorship Program</span><span class="github-arrow">↗</span></div>
+        <p class="project-desc">Platform concept connecting mentors and mentees for personal and professional development.</p>
+        <div class="project-tech"><span class="tech-tag">Web</span><span class="tech-tag">Platform</span><span class="tech-tag">UX Design</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="reveal">
+    <p class="section-label">Expertise</p>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-underline"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <p class="skill-group-name">Programming</p>
+        <ul class="skill-list"><li>Python</li><li>C</li><li>Java</li><li>Shell</li><li>SQL</li></ul>
+      </div>
+      <div class="skill-card">
+        <p class="skill-group-name">AI &amp; Data</p>
+        <ul class="skill-list"><li>Machine Learning</li><li>Data Science</li><li>Power BI</li><li>OpenCV</li></ul>
+      </div>
+      <div class="skill-card">
+        <p class="skill-group-name">Web</p>
+        <ul class="skill-list"><li>Frontend Dev</li><li>Web Technologies</li><li>Design Patterns</li><li>REST APIs</li></ul>
+      </div>
+      <div class="skill-card">
+        <p class="skill-group-name">Software Eng.</p>
+        <ul class="skill-list"><li>Software Testing</li><li>Test Plans</li><li>Test Scenarios</li><li>Reports</li></ul>
+      </div>
+      <div class="skill-card">
+        <p class="skill-group-name">Design</p>
+        <ul class="skill-list"><li>Graphic Design</li><li>Video Editing</li><li>Digital Content</li></ul>
+      </div>
+      <div class="skill-card">
+        <p class="skill-group-name">Tools</p>
+        <ul class="skill-list"><li>Matlab</li><li>Cisco PT</li><li>Proteus</li><li>TinkerCad</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="reveal">
+    <p class="section-label">Communication</p>
+    <h2 class="section-title">Languages</h2>
+    <div class="section-underline"></div>
+    <div class="lang-list">
+      <div class="lang-chip">Bangla <span>Native</span></div>
+      <div class="lang-chip">English <span>Fluent</span></div>
+      <div class="lang-chip">Finnish <span>Basic</span></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Mahshiat Tahsin Bably &nbsp;·&nbsp; Computer &amp; AI Engineer &nbsp;·&nbsp; 2026
+    <div style="margin-top:12px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://www.linkedin.com/in/mahshiat-tahsin/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:11px;">LinkedIn</a>
+      <a href="mailto:mahshiat@gmail.com" style="color:var(--accent);text-decoration:none;font-size:11px;">mahshiat@gmail.com</a>
+      <a href="https://github.com/MahshiatTahsin" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:11px;">GitHub</a>
+      <a href="https://urn.fi/URN:NBN:fi-fe2026052049902" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:11px;">Thesis</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+
+</body></html>
